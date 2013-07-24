@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>United States of America</title>
+	<meta charset="utf-8" />
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="stylesheet" href="./dist/leaflet.css" />
+	<link rel="stylesheet" href="./src/basic.css" />
+	<!--[if lte IE 8]><link rel="stylesheet" href="./dist/leaflet.ie.css" /><![endif]-->
+</head>
+<body>
+	<div id="map" class="map"></div>
+
+	<script src="./dist/leaflet.js"></script>
+	<script>
+
+		// Lat 39°50'N, Lon -98°35'W
+		// Lat 39.833333, Lon -98.583333
+		// var map = L.map('map').setView([51.505, -0.09], 13);
+		var map = L.map('map').setView([39.833333, -98.583333], 4);
+
+		L.tileLayer('http://{s}.tile.cloudmade.com/df8597124c524ac59b5b33fe6a86d27d/997/256/{z}/{x}/{y}.png', {
+			maxZoom: 9,
+			attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>'
+		}).addTo(map);
+
+
+		L.marker([39.8, -98.58]).addTo(map)
+			.bindPopup("<b>Hello world!</b><br />I am a popup.").openPopup();
+
+		L.circle([40.0, -98.60], 500, {
+			color: 'red',
+			fillColor: '#f03',
+			fillOpacity: 0.5
+		}).addTo(map).bindPopup("I am a circle.");
+
+		L.polygon([
+			[39.509, -98.08],
+			[39.503, -98.06],
+			[39.51, -98.047]
+		]).addTo(map).bindPopup("I am a polygon.");
+
+
+		var popup = L.popup();
+
+		function onMapClick(e) {
+			popup
+				.setLatLng(e.latlng)
+				.setContent("You clicked the map at " + e.latlng.toString())
+				.openOn(map);
+		}
+
+		map.on('click', onMapClick);
+
+	</script>
+</body>
+</html>
