@@ -3,7 +3,7 @@ exports.config = {
 	// environment
 	"browser": true,
 	"node": true,
-	"predef": ['define'],
+	"predef": ['L', 'define'],
 	"strict": false,
 
 	// code style
@@ -20,14 +20,14 @@ exports.config = {
 	"nonew": true,
 	"undef": true,
 	"unused": true,
-	"quotmark": "single",
+	//"quotmark": "single",
 
 	// whitespace
 	"indent": 4,
 	"trailing": true,
 	"white": true,
 	"smarttabs": true,
-	"maxlen": 120
+	//"maxlen": 120
 
 	// code simplicity - not enforced but nice to check from time to time
 	// "maxstatements": 20,

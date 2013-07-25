@@ -120,7 +120,7 @@ exports.build = function (compsBase32, buildName) {
 	    outro = '}(window, document));',
 	    newSrc = copy + intro + combineFiles(files) + outro,
 
-	    pathPart = 'dist/leaflet' + (buildName ? '-' + buildName : ''),
+	    pathPart = 'dist/leaflet.markercluster' + (buildName ? '-' + buildName : ''),
 	    srcPath = pathPart + '-src.js',
 
 	    oldSrc = loadSilently(srcPath),
